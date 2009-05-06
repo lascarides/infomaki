@@ -1,0 +1,34 @@
+====================
+ROADMAP FOR INFOMAKI
+====================
+
+MUST DO ----------------------------------
+
+* Unit Tests
+* Functional Tests
+* Pagination
+
+FEATURE REQUESTS -------------------------
+
+* Close off "other"
+* is_demographic?
+* Encouragement and interstitials (movie trivia! nypl arcana! video game levels! scavenger hunt!)
+* Reports
+** SVG graphs/charts
+* Public Interface (respondees) vs. Semi-Public Interface (interested parties) vs. admin (adding new questions)
+* Different Kinds of Questions
+** Get Card Sorts working
+** Proximity
+** Five second comparison
+** Five second best and worst
+** Five second five things
+* "Distributor" for referring users to a random Infomaki instance. 
+* Automatic withdrawal of question when threshold of responses reached
+* Priority weighting of questions
+* RSS/Atom feeds when result threshold reached
+** Designers can subscribe to RSS feeds
+* Comments on results
+** Make results commentable by other institutions - RADICAL OPENNESS
+* Trouble tickets/feature requests part of this app?
+* Tags and groups for questions
+* Show "The Pool", "All Questions"

@@ -1,0 +1,27 @@
+<div class="content">
+
+  <h1>New pageview</h1>
+
+  <% form_for(@pageview) do |f| %>
+    <%= f.error_messages %>
+    <p>
+      Question<br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :is_active %><br />
+      <%= f.check_box :is_active %>
+    </p>
+    <p>
+      <%= f.label :wireframe %><br />
+      <%= f.select(:wireframe_id, Wireframe.find(:all, :order => "name", :conditions => ["is_active = ?", true]).collect {|w| [ "#{w.name} (#{w.created_at.strftime("%b %d")})", w.id ] }) %>
+      <br /><%= link_to "Add a screenshot", new_wireframe_path %>
+    </p>
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Back', pageviews_path %>
+
+</div>

@@ -1,0 +1,35 @@
+<div class="content">
+  
+  <p><%= link_to image_tag("add.png") + " Add a New Card Sort", new_card_sort_path %></p>
+
+  <h2>Card Sorts</h2>
+
+  <%= will_paginate @card_sorts %> 
+
+  <table class="sortable">
+    <tr>
+      <th>Active?</th>
+      <th class="name_box">Name</th>
+      <th>Created</th>
+      <th>Replies</th>
+      <th>Edit</th>
+    </tr>
+
+  <% for initiative in @card_sorts %>
+    <tr>
+      <td>
+      <div id="initiative_<%= initiative.id %>">
+      <%= render :partial => "initiatives/active_switch", :locals => {:initiative => initiative} %>
+      </div>
+      </td>
+      <td class="name_box"><%= link_to initiative.name, initiative %></td>
+      <td><%= initiative.created_at.strftime("%Y-%m-%d") %></td>
+      <td><%= initiative.replies.count %></td>
+      <td><%= link_to image_tag("edit.png"), :controller => initiative.class.to_s.tableize, :action => 'edit', :id => initiative %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= will_paginate @card_sorts %> 
+
+</div>

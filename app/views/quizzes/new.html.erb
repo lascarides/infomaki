@@ -1,0 +1,20 @@
+<div class="content">
+
+  <h1>Create new quiz</h1>
+
+  <% form_for(@quiz) do |f| %>
+    <%= f.error_messages %>
+    <p>
+      Question<br />
+      <%= f.text_area :name %>
+    </p>
+    <p>
+      <%= f.label :is_active %><br />
+      <%= f.check_box :is_active %>
+    </p>
+    <p>
+      <%= f.submit "Create Quiz" %>
+    </p>
+  <% end %>
+
+</div>

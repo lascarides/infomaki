@@ -1,0 +1,43 @@
+<div class="content">
+
+  <h1>Edit card_sort</h1>
+
+  <% form_for(@card_sort) do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :is_active %><br />
+      <%= f.check_box :is_active %>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+
+  <h1>Card Sort: <%= @card_sort.name %></h1>
+
+  <h2>Cards</h2>
+  <ul>
+  <% for card in @card_sort.cards do %>
+    <li><%= card.name %></li>
+  <% end %>
+  </ul>
+
+  <%= link_to image_tag("add.png") + 'Add card', new_card_path %> 
+
+  <h2>Card Groups</h2>
+  <ul>
+  <% for card_group in @card_sort.card_groups do %>
+    <li><%= card_group.name %></li>
+  <% end %>
+  </ul>
+
+  <%= link_to image_tag("add.png") + 'Add card group', new_card_group_path %> 
+
+  <%= link_to 'Show', @card_sort %> |
+  <%= link_to 'Back', card_sorts_path %>
+
+</div>

@@ -1,0 +1,339 @@
+body {
+	background: #f2f2f2;
+	margin: 0;
+}
+
+body, p, ol, ul, td {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #333; 
+}
+
+body.about { 
+	background: #e3e3d4;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	background: #ddd;
+	text-align: left;
+	padding: 0.5em;
+	border-bottom: 1px solid #0090c4;
+}
+
+td {
+	padding: 0.5em;
+	border-bottom: 1px solid #ccc;
+}
+
+td.name_box, th.name_box {
+	width: 90%;
+}
+
+td.bar_graph {
+	width: 100px;
+	background: url(/images/table_bar_graph.gif) -100px 50% scroll no-repeat;
+}
+
+pre {
+	background-color: #eee;
+	padding: 10px;
+	font-size: 11px;
+}
+
+a { 
+	color: #000;
+	text-decoration: none;
+}
+
+a:visited { 
+	color: #666; 
+}
+
+a:hover { 
+	color: #a00;
+	text-decoration: underline;
+}
+
+a img {
+	border: 0px;
+}
+
+h1 {
+	margin: 0 0 1em;
+}
+
+h2 {
+	margin: 1em 0;
+}
+
+h3 {
+	margin: 0 0 1em;
+}
+
+h1,h2,h3 {
+	font-weight: 100;
+	color: #d62828;
+}
+
+.nav {
+	background: #ddd;
+	color: #000;
+	padding: 5px 1em;
+	font-weight: 700;
+	font-size: 10px;
+	text-align: right;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.nav a, .nav a:visited {
+	font-weight: 100;
+	color: #666;
+	text-decoration: none;
+	padding: 0 0.5em;
+}
+
+.admin_nav {
+	background: #000;
+	border-bottom: 3px solid #999;
+	color: #ff6;
+}
+
+.admin_nav a, .admin_nav a:visited {
+	color: #fff;
+}
+
+.about_main {
+	padding: 15px 0 1px;
+	background: url(/images/round_top.gif) 0 0 scroll no-repeat #fff;
+	margin: 3em auto 0;
+	width: 799px;
+}
+
+.about_main .content {
+	padding: 0 15px;
+}
+
+.main {
+	padding: 15px 15px 3em;
+	background: #fff;
+	margin: 0 auto;
+}
+
+.participate_links {
+	margin: 2em 0;
+	font-size: 1.2em;
+}
+
+.participate_links .participate {
+	color: #a00 !important;
+	font-weight: bold;
+}
+
+.participate_links .decline {
+	color: #666;
+	font-weight: normal;
+}
+
+.participate_links td {
+	border: 0px solid #fff;
+	text-align: center;
+}
+
+.participate_links td a {
+	display: block;
+}
+
+.participate_links td.yes {
+	background: #ffc;
+	border: 1px solid #cc6;
+}
+
+ul.selectable, ul.selectable li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul.selectable {
+	margin: 1em 0;
+}
+
+ul.selectable li {
+	margin: 0.4em 0;
+	font-size: 1.6em;
+}
+
+.content {
+	position: relative;
+	margin: 1em;
+}
+
+.heatmap {
+	position: relative;
+	margin: 1em 0 4em;
+}
+
+.clickspot {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: url(/images/clickspot_green.png) transparent;
+}
+
+.clickpercent {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	font-size: 10px;
+	background: #090;
+	visibility: hidden;
+}
+
+.clickpercent div {
+	padding: 5px;
+}
+
+.palette {
+	position: fixed;
+	width: 100px;
+	font-size: 10px;
+	top: 6em;
+	right: 0;
+	background: #fff;
+	padding: 1em;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.notice {
+	background: yellow;
+	color: black;
+	padding: 0.5em;
+	margin: 0;
+}
+
+.alert {
+	background: red;
+	color: white;
+	padding: 0.5em;
+	margin: 1em 0;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.footer {
+	text-align: center;
+	padding: 60px 0 15px;
+	text-transform: uppercase;
+	font-size: 10px;
+	background: url(/images/round_bottom.gif) 0 0 scroll no-repeat transparent;
+	margin: 0 auto;
+	width: 799px;
+}
+
+.please_forward {
+	color: #333;
+	font-style: italic;
+	font-size: 12px;
+}
+
+h2.pageview {
+	margin-bottom: 0.1em;
+	margin-right: 200px;
+}
+
+.caption {
+	margin: 0 0 1.3em;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+#explanation div {
+	position: absolute;
+	left: 50%;
+	top: 100px;
+	margin-left: -200px;
+	width: 400px;
+	padding: 1em;
+	border: 1px solid #666;
+	background: #fff;
+	opacity: 100%;
+}
+
+#explanation { 
+	display: none;
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	z-index: 90; 
+	width: 100%; 
+	height: 500px; 
+	background-color: #000; 
+	opacity: 50%;
+}
+
+ul.user_story_listings {
+	list-style-type: none;
+}
+
+ul.user_story_listings li h2 {
+	font-size: 1.0em;
+}
+
+.pagination {
+	padding: .5em;
+	text-align: center;
+	margin: 0.5em;
+	font-family: "Bell Gothic", Verdana;
+	background: #fff;
+	border: 1px solid #ddd;
+	text-transform: lowercase;
+	font-size: small;
+}
+
+.pagination .current {
+	font-weight: bold;
+	color: #a00;
+}
+
+#yes_keep_going div {
+	font-size: small;
+	padding: 1em;
+}

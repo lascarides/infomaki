@@ -1,0 +1,1 @@
+page.replace_html "initiative_#{@initiative.id}", :partial => "active_switch", :locals => {:initiative => @initiative}

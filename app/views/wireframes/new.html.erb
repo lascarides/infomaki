@@ -1,0 +1,29 @@
+<div class="content">
+
+  <h1>Upload new screenshot</h1>
+
+  <% form_for(@wireframe,:html => { :multipart => true }) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description %>
+    </p>
+    <p>
+      <%= f.label :is_active %><br />
+      <%= f.check_box :is_active %>
+    </p>
+    <p>
+      Choose file<br />
+      <%= f.file_field :screenshot %>
+    </p>
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+
+</div>

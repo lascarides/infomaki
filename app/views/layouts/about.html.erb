@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>New York Public Library: Help us improve our web site!</title>
+  <%= stylesheet_link_tag 'styles' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body class="about">
+
+<%= render :partial => "shared/admin_nav" %>
+<%= '<div class="notice">' + flash[:notice] + '</div>' if flash[:notice] %>
+
+
+<div class="about_main">
+<div class="content">
+<%= yield  %>
+</div>
+</div>
+
+<div class="footer"><strong><%= link_to "Infomaki", :controller => 'about', :action => 'infomaki' %></strong> usability software produced by the <%= link_to "Digital Experience Group", "http://labs.nypl.org/"%> of the <%= link_to "New York Public Library", "http://www.nypl.org/"%></div>
+
+<%= render :partial => "shared/analytics" %>
+
+</body>
+</html>

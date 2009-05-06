@@ -1,0 +1,20 @@
+<h1>Thank you!</h1>
+
+<h2>That was easy, wasn't it?</h2>
+
+<p>It would be a big help if you could answer another question or two.</p>
+
+<div class="participate_links">
+  <table>
+    <tr>
+    <td class="yes" id="yes_keep_going">
+      <%= link_to "Sure, I'll answer another.", "/participate", :class => "participate" %>
+      <div><%= link_to_remote "Don't thank me after each question, just keep them coming!", :url => { :controller => 'about', :action => "keep_going" } %></div>
+    </td> 
+    <td><%= link_to "No, thanks... take me back to NYPL.org", "http://www.nypl.org/", :class => "decline" %></td>
+    </tr>
+
+  </table>
+</div>
+
+<%= render :partial => "shared/forward_message" %>

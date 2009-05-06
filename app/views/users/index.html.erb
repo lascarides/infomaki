@@ -1,0 +1,33 @@
+<div class="content">
+
+  <h1>Listing users</h1>
+
+  <%= link_to image_tag("add.png") + ' Add new user', new_user_path %>
+
+  <%= will_paginate @users %>
+
+  <table class="sortable">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Can edit?</th>
+      <th>Superuser?</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+
+  <% for user in @users %>
+    <tr>
+      <td><%= link_to "#{user.first_name} #{user.last_name}", user %></td>
+      <td><%=h user.email %></td>
+      <td><%= user.is_admin ? image_tag("active.png") : image_tag("inactive.png") %></td>
+      <td><%= user.is_superuser ? image_tag("active.png") : image_tag("inactive.png") %></td>
+      <td><%= link_to image_tag("edit.png"), edit_user_path(user) %></td>
+      <td><%= link_to image_tag("delete.png"), user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= will_paginate @users %>
+
+</div>

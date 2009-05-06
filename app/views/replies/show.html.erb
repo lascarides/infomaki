@@ -1,0 +1,43 @@
+<p>
+  <b>User:</b>
+  <%=h @reply.user_id %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%=h @reply.item_id %>
+</p>
+
+<p>
+  <b>Item type:</b>
+  <%=h @reply.item_type %>
+</p>
+
+<p>
+  <b>Coordinate x:</b>
+  <%=h @reply.coordinate_x %>
+</p>
+
+<p>
+  <b>Coordinate y:</b>
+  <%=h @reply.coordinate_y %>
+</p>
+
+<p>
+  <b>Reply long:</b>
+  <%=h @reply.reply_long %>
+</p>
+
+<p>
+  <b>Reply short:</b>
+  <%=h @reply.reply_short %>
+</p>
+
+<p>
+  <b>Reply item:</b>
+  <%=h @reply.reply_item_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_reply_path(@reply) %> |
+<%= link_to 'Back', replies_path %>

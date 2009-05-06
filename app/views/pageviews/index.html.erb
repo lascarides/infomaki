@@ -1,0 +1,45 @@
+<div class="content">
+  
+  <% if is_admin? %>
+  <p><%= link_to image_tag("add.png") + " Add a Pageview", new_pageview_path %></p>
+  <% end %>
+  
+  <h2>Pageviews</h2>
+  
+  <%= will_paginate @pageviews %> 
+
+  <table class="sortable">
+    <tr>
+      <th>Active?</th>
+      <th>Name</th>
+      <th>Screenshot</th>
+      <th>Created</th>
+      <th>Replies</th>
+      <th>Avg Time</th>
+      <% if is_admin? %>
+        <th>Edit</th>
+      <% end %>
+    </tr>
+
+  <% for initiative in @pageviews %>
+    <tr>
+      <td>
+      <div id="initiative_<%= initiative.id %>">
+      <%= render :partial => "initiatives/active_switch", :locals => {:initiative => initiative} %>
+      </div>
+      </td>
+      <td><%= link_to initiative.name, initiative %></td>
+      <td><%= link_to initiative.wireframe.name, initiative.wireframe %></td>
+      <td><%= initiative.created_at.strftime("%Y-%m-%d") %></td>
+      <td><%= initiative.replies.count %></td>
+      <td><%= initiative.average_reply_time %>s</td>
+      <% if is_admin? %>
+        <td><%= link_to image_tag("edit.png"), :controller => initiative.class.to_s.tableize, :action => 'edit', :id => initiative %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= will_paginate @pageviews %> 
+
+</div>

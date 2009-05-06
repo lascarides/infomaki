@@ -1,0 +1,43 @@
+<div class="content">
+
+  <h1>Editing quiz</h1>
+
+  <% form_for(@quiz) do |f| %>
+    <%= f.error_messages %>
+    <p>
+      Question<br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :is_active %><br />
+      <%= f.check_box :is_active %>
+    </p>
+    <p>
+      <%= f.label "Allow 'other' entry?" %><br />
+      <%= f.check_box :is_open_entry %>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+
+  <h2>Answers</h2>
+  
+  <ul>
+  <% @quiz.answers.each do |answer| %>
+    <li>
+    <%= answer.body %>
+    <%= link_to image_tag("delete.png"), answer, :method => :delete %>
+    </li>
+  <% end %>
+  </ul>
+
+  <% form_for(@answer) do |f| %>
+    <%= f.error_messages %>
+    <%= f.hidden_field :quiz_id, :value => @quiz.id %>
+    <p>
+      <%= f.text_field :body %> <%= f.submit "Add Answer" %>
+    </p>
+  <% end %>
+
+</div>

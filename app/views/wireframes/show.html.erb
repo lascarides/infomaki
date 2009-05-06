@@ -1,0 +1,16 @@
+<div class="content">
+
+  <h2><%= @wireframe.name %> <%= link_to image_tag("edit.png"), edit_wireframe_path(@wireframe) %></h2>
+
+  <%= "<p>#{@wireframe.description}</p>" unless @wireframe.description.blank? %>
+
+  <% @wireframe.pageviews.each do |pageview| %>
+
+    <h3><span id="initiative_<%= pageview.id %>"><%= render :partial => "initiatives/active_switch", :locals => {:initiative => pageview} %></span> <%= link_to pageview.name, pageview %> / Posted <%= pageview.created_at %></h3>
+    <%= render :partial => "pageviews/heatmap", :locals => {:pageview => pageview} %>
+
+  <% end %>
+
+</div>
+
+<%= render :partial => "pageviews/palette" %>

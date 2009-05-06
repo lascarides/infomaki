@@ -1,0 +1,2 @@
+module WireframesHelper
+end

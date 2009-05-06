@@ -1,0 +1,17 @@
+<% if is_logged_in? %>
+
+  <div class="nav admin_nav"> 
+    <%= link_to_unless_current "home", :controller => "initiatives" %> | 
+    <%= link_to_unless_current "reports", :controller => 'reports' %> |
+    <%= link_to_unless_current "screenshots", :controller => 'wireframes' %> |
+    <%= link_to_unless_current "pageviews", :controller => 'pageviews' %> |
+    <%= link_to_unless_current "quizzes", :controller => 'quizzes' %>
+    <% if is_superuser? %>
+      | <%= link_to_unless_current "users", :controller => 'users' %>
+    <% end %>
+    <% if controller.controller_name != "reports" and controller.controller_name != "about" %>
+      | <%= link_to_unless_current "new " + controller.controller_name.singularize.gsub("wireframe", "screenshot"), :action => 'new' %>
+    <% end %>
+  </div>
+
+<% end %>

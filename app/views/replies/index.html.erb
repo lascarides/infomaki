@@ -1,0 +1,34 @@
+<h1>Listing replies</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Item</th>
+    <th>Item type</th>
+    <th>Coordinate x</th>
+    <th>Coordinate y</th>
+    <th>Reply long</th>
+    <th>Reply short</th>
+    <th>Reply item</th>
+  </tr>
+
+<% for reply in @replies %>
+  <tr>
+    <td><%=h reply.user_id %></td>
+    <td><%=h reply.item_id %></td>
+    <td><%=h reply.item_type %></td>
+    <td><%=h reply.coordinate_x %></td>
+    <td><%=h reply.coordinate_y %></td>
+    <td><%=h reply.reply_long %></td>
+    <td><%=h reply.reply_short %></td>
+    <td><%=h reply.reply_item_id %></td>
+    <td><%= link_to 'Show', reply %></td>
+    <td><%= link_to 'Edit', edit_reply_path(reply) %></td>
+    <td><%= link_to 'Destroy', reply, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New reply', new_reply_path %>

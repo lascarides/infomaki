@@ -1,0 +1,20 @@
+<div class="heatmap">
+<%= image_tag pageview.wireframe.screenshot.url %>
+<% pageview.replies.sort_by { rand }.slice(0, CLICKS_IN_SAMPLE).each do |rep| %>
+  <div class="clickspot" id="clickspot_<%= rep.id %>" style="left:<%= rep.coordinate_x - 10 %>px;top:<%= rep.coordinate_y - 10 %>px;">&nbsp;</div>
+<% end %>
+<% pageview.percents.each_with_index do |px, x| %>
+  <% unless px.nil? %>
+    <% px.each_with_index do |ct, y| %>
+      <% unless ct.nil? %>
+        <div class="clickpercent" style="left:<%= x * PAGEVIEW_GRID_SIZE %>px;top:<%= y * PAGEVIEW_GRID_SIZE %>px;opacity:<%= [ct.to_f/pageview.max_clicks.to_f, 0.25].max %>;filter:alpha(opacity=<%= [((ct.to_f/pageview.max_clicks.to_f)*100).to_i, 25].max %>)">
+          <div>
+          <%= ct %> /
+          <%= ((ct.to_f / pageview.replies.count.to_f) * 100).to_i %>%
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>

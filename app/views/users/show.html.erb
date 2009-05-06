@@ -1,0 +1,17 @@
+<div class="content">
+  <h2><%=h @user.first_name %> <%=h @user.last_name %></h2>
+
+  <p>
+    <%=h @user.email %>
+  </p>
+
+  <p>
+  <%= "Admin. " if @user.is_admin? %>
+  <%= "Superuser. " if @user.is_superuser? %>
+  </p>
+
+
+  <%= link_to image_tag("edit.png"), edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+
+</div>

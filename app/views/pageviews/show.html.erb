@@ -1,0 +1,41 @@
+<div class="content">
+
+  <h2 class="pageview"><%= @pageview.name %></h2>
+  
+  <% if is_logged_in? %>
+        
+    <% @pageviews.each do |pageview| %>
+      
+        <h3>
+        <span id="initiative_<%= pageview.id %>"><%= render :partial => "initiatives/active_switch", :locals => {:initiative => pageview} %></span> 
+        <%= link_to pageview.wireframe.name, pageview.wireframe %> / 
+        <%= pageview.created_at.strftime("%b %d, %Y") %> / 
+        <%= pageview.average_reply_time %> seconds
+        </h3>
+
+        <%= render :partial => "pageviews/heatmap", :locals => {:pageview => pageview} %>
+
+    <% end %>
+
+    <%= render :partial => "pageviews/palette" %>
+
+  <% else %>
+
+    <p class="caption">Not sure where to click? Just take your best guess.</p>
+
+    <% form_for(@reply) do |f| %>
+      <%= f.error_messages %>
+      <%= f.hidden_field :initiative_id, :value => @pageview.id %>
+      <%= f.hidden_field :elapsed_time, :id => "elapsed_time" %>
+      <div class="heatmap">
+      <%= image_submit_tag @pageview.wireframe.screenshot.url, :onclick => "this.form.elapsed_time.value=get_elapsed_time(start_time)" %>
+      </div>
+    <% end %>
+
+  <% end %>
+
+</div>
+
+
+
+

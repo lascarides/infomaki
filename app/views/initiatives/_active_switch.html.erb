@@ -1,0 +1,13 @@
+<% if is_admin? %>
+
+  <% if initiative.is_active? %>  
+  <%= link_to_remote(image_tag("active.png"), :url => { :controller => 'initiatives', :action => "inactivate", :id => initiative }) %>
+  <% else %>
+  <%= link_to_remote(image_tag("inactive.png"), :url => { :controller => 'initiatives', :action => "activate", :id => initiative }) %>
+  <% end %>
+
+<% else %>
+
+  <%= initiative.is_active ? image_tag("active.png") : image_tag("inactive.png") %>
+
+<% end %>

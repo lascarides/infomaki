@@ -1,0 +1,18 @@
+quiz_closed:
+  id: 1
+  type: Quiz
+  name: 'What is your favorite color?'
+  is_active: 1
+  is_open_entry: 0
+quiz_open:
+  id: 2
+  type: Quiz
+  name: 'What is your favorite city?'
+  is_active: 1
+  is_open_entry: 1
+quiz_inactive:
+  id: 3
+  type: Quiz
+  name: 'What is your favorite sports team?'
+  is_active: 0
+  is_open_entry: 1

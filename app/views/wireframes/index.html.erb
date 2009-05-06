@@ -1,0 +1,41 @@
+<div class="content">
+
+  <h1>Screenshots</h1>
+
+  <% if is_admin? %>
+    <p><%= link_to image_tag("add.png") + ' Upload new screenshot', new_wireframe_path %></p>
+  <% end %>
+
+  <%= will_paginate @wireframes %> 
+
+  <table class="sortable">
+    <tr>
+      <th>Active?</th>
+      <th></th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Notes</th>
+      <% if is_admin? %>
+        <th>Edit</th>
+        <th>Delete</th>
+      <% end %>
+    </tr>
+
+  <% for wireframe in @wireframes %>
+    <tr>
+      <td><%= image_tag("active.png") if wireframe.is_active? %></td>
+      <td><%= link_to image_tag(wireframe.screenshot.url(:thumb)), wireframe %></td>
+      <td><%= link_to wireframe.name, wireframe %></td>
+      <td><%= wireframe.created_at.strftime("%Y-%m-%d") %></td>
+      <td><%=simple_format wireframe.description %></td>
+      <% if is_admin? %>
+        <td><%= link_to image_tag("edit.png"), edit_wireframe_path(wireframe) %></td>
+        <td><%= link_to image_tag("delete.png"), wireframe, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= will_paginate @wireframes %> 
+
+</div>

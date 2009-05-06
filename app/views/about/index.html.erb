@@ -1,0 +1,30 @@
+<% if flash[:no_more_questions] %>
+
+  <div class="notice">
+    Thanks for your participation, but it looks like <strong>we are fresh out of questions for today.</strong><br /> Please return soon, as we're constantly adding new questions, and your feedback is incredibly helpful to us!
+  </div>
+  <div class="participate_links">
+    <%= link_to "Return to the New York Public Library Web Site.", "http://www.nypl.org/", :class => "decline" %>
+  </div>
+
+<% else %>
+
+  <h1>Do you have time to answer one question?</h1>
+
+  <h2>Help the New York Public Library!</h2>
+
+  <p>We're looking for feedback on our web sites. Your answer to even a single question will be a great help.</p>
+
+  <div class="participate_links">
+    <table>
+    <tr>
+    <td class="yes"><%= link_to "Yes! I'd like to help!", {:action => 'agree'}, :class => "participate" %></td> 
+    <td><%= link_to "No thanks, not right now.", {:controller => "about", :action => "nothanks"}, :class => "decline" %></td>
+    </tr>
+    </table>
+  </div>
+  
+<% end %>
+
+
+<%= render :partial => "shared/forward_message" %>

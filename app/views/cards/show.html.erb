@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @card.name %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%=h @card.group_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

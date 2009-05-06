@@ -1,0 +1,46 @@
+<div class="content">
+  
+  <h2>The term "<%= @card_term %>" matches most closely with which of the following?</h2>
+
+  <% if is_logged_in? %>
+    <h3>Responses:</h3>
+      <table>
+      
+      <tr>
+      <th>Term</th>
+      <th>Replies</th>
+      </tr>
+
+      <% @card_sort.replies.count(:group => :short_answer, :order => "count_all DESC").each do |reply| %>
+        <tr>
+        <td><%= reply[0] %></td>
+        <td><%= reply[1] %></td>
+        </tr>
+      <% end %>
+      </table>
+      
+    <% else %>
+
+      <% form_for(@reply) do |f| %>
+        <%= f.error_messages %>
+
+        <%= f.hidden_field :initiative_id, :value => @card_sort.id %>
+
+        <ul class="selectable">
+          <% for card_match in @card_matches do %>
+            <li><%= f.radio_button :short_answer, card_match %> <%= card_match %></li>
+          <% end %>
+          <li>
+            <%= f.radio_button :short_answer, "Other", :onclick => "$('other_field').focus()" %> 
+            Other:
+            <%= text_field_tag "other_field", "", :onfocus => "$('reply_short_answer_other').checked = 'checked'" %></li>
+        </ul>
+
+        <%= f.submit "Submit My Choice" %>
+
+    <% end %>
+
+  <% end %>
+</div>
+
+

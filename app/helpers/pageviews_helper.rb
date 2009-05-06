@@ -1,0 +1,2 @@
+module PageviewsHelper
+end

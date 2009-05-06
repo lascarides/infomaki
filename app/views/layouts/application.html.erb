@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>New York Public Library: Help us improve our web site!</title>
+  <%= stylesheet_link_tag 'styles' %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "infomaki" %>
+  <%= javascript_include_tag "sorttable" if is_logged_in? %>
+    
+</head>
+<body onload="s=new Date;start_time=s.getTime();">
+<%= render :partial => "shared/admin_nav" %>
+
+<% unless is_logged_in? %>
+<div class="nav">
+  <%= link_to_function "Why are you asking me this question?", "$('explanation').setStyle('display:block;')" %> &bull; 
+  <%= link_to "I'm Done! Take me back to NYPL.org", "http://www.nypl.org/" %>
+</div>
+<% end %>  
+
+
+<%= '<div class="notice">' + flash[:notice] + '</div>' if flash[:notice] %>
+
+<%= yield  %>
+
+<%= render :partial => "shared/analytics" %>
+
+<div id="explanation">
+  <div>
+  <h3>Why are you asking me this question?</h3>
+  <p>The questions on this web site help us gain insight about choices we are making in the design of the New York Public Library's web sites. We might be trying out a new button design, or we might be curious about which of two words is more familiar to our audience. A question might not make sense to you on its own, but trust us-- it's very helpful! All we ask is that you answer quickly with your first impression, and remember that there are no right or wrong answers.</p>
+  <p><em><%= link_to_function "close this window", "$('explanation').setStyle('display:none;')" %></em></p>
+  </div>
+</div>
+
+</body>
+</html>

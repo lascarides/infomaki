@@ -1,0 +1,21 @@
+<div class="content">
+
+  <h1>New card_sort</h1>
+
+  <% form_for(@card_sort) do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :is_active %><br />
+      <%= f.check_box :is_active %>
+    </p>
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Back', card_sorts_path %>
+</div>

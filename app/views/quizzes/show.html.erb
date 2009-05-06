@@ -1,0 +1,54 @@
+<div class="content">
+  
+  <h2><%= @quiz.name %></h2>
+
+  <% if is_logged_in? %>
+    
+    <h3>Offered Choices</h3>
+    
+    <p>
+    <%= @quiz.answers.collect{|a| a.body }.join(", ") %>
+    <%= ", 'Other'" if @quiz.is_open_entry %>
+    </p>
+
+    <h3>Responses</h3>
+      <table>
+      
+      <tr>
+      <th>Term</th>
+      <th>Replies</th>
+      </tr>
+
+      <% @replies.each do |reply| %>
+        <tr>
+        <td><%= reply[0] %></td>
+        <td class="bar_graph" style="background-position:<%= reply[2] - 100 %>px 50%;"><%= reply[1] %></td>
+        </tr>
+      <% end %>
+      </table>
+      
+    <% else %>
+
+      <% form_for(@reply) do |f| %>
+        <%= f.error_messages %>
+
+        <%= f.hidden_field :initiative_id, :value => @quiz.id %>
+
+        <ul class="selectable">
+          <% for answer in @quiz.answers do %>
+            <li><%= f.radio_button :short_answer, answer.body %> <%= answer.body %></li>
+          <% end %>
+          <% if @quiz.is_open_entry? %>
+            <li>
+              <%= f.radio_button :short_answer, "Other", :onclick => "$('other_field').focus()" %> 
+              Other:
+              <%= text_field_tag "other_field", "", :onfocus => "$('reply_short_answer_other').checked = 'checked'" %></li>
+            <% end %>
+        </ul>
+
+        <%= f.submit "Submit My Choice" %>
+
+      <% end %>
+
+  <% end %>
+</div>

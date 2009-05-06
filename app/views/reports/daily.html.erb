@@ -1,0 +1,25 @@
+<div class="content">
+
+  <h2>Responses by Day</h2>
+
+  <p>Total responses: <%=  @total_replies %></p>
+  <p>Total respondents: <%=  @respondents %></p>
+  <p>Average questions/person: <%=  sprintf("%.2f", @total_replies.to_f / @respondents.to_f) %></p>
+
+  <table class="sortable">
+    <tr>
+      <th>Day</th>
+      <th>Responses</th>
+    </tr>
+
+
+    <% @replies.each do |day| %>
+      <tr>
+      <td><%= day[0] %></td>
+      <td><%= day[1] %></td>
+      </tr>
+    <% end %>
+
+  </table>
+  
+</div>
