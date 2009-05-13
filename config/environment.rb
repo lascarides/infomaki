@@ -71,7 +71,19 @@ Rails::Initializer.run do |config|
 end
 
 # Infomaki-specific configs
+
+# Size of grid squares in admin view
 PAGEVIEW_GRID_SIZE  = 50.0
+
+# Show only this number of click-spots (randomly sampled) in admin view
 CLICKS_IN_SAMPLE    = 100
+
+# For future use
 LENGTH_OF_ANIMATION = 20.0
+
+# Don't report response times longer than this (in seconds) so really long ones
+# don't throw off average times.
 MAX_ELAPSED_TIME    = 60.0
+
+# Using Google Analytics? Put your site code here to enable tracking. 
+GOOGLE_ANALYTICS_CODE = ""
